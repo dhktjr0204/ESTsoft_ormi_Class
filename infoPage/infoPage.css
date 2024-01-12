@@ -1,0 +1,212 @@
+/*common css*/
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #5B2386;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+}
+.txt-hide{
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+}
+/*common css*/
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.clock{
+    width: 261px;
+    height: 265px;
+    position: relative;
+}
+.timeRule{
+    width: 564px;
+    height: 112px;
+    position: absolute;
+}
+
+.title{
+    color:#F5DF4D;
+    font-size: 36px;
+    margin: 70px 0;
+}
+.cont-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+.cont-info>div{
+    display: flex;
+}
+.title-info{
+    width: 373px;
+    color:white;
+    font-size: 18px;
+    text-align: center;
+}
+.title-info>p{
+    margin: 0;
+}
+.title-info>p>strong{
+    font-size: 24px;
+}
+.quotationMarks{
+    color:#FCEE21;
+    font-size: 96px;
+    opacity: 30%;
+    position: relative;
+    bottom: 20px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-txt{
+    font-size:24px;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+.form-txt>p{
+    margin: 0;
+}
+.form-txt>p>input{
+    width: 228px;
+    height: 57px;
+    font-size: 24px;
+    text-align: center;
+    border-radius: 7px;
+}
+.hand{
+    width: 64px;
+    height: 72px;
+    position: relative;
+    top:14px;
+}
+.form-button{
+    display: flex;
+    margin-bottom: 100px;
+}
+.calStudyTimeButton{
+    font-weight: bold;
+    padding: 21px 49px;
+    background-color: #FCEE21;
+    font-size: 24px;
+    color: #5B2386;
+    border: 0;
+    border-radius: 56px;
+}
+.result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.result>p{
+    display: flex;
+    align-items: center;
+    color: white;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+}
+.result>p:last-child{
+    margin-bottom: 100px;
+}
+.result>p>strong{
+    font-size: 72px;
+    font-weight: 700;
+}
+.cont-act{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+    gap: 10px;
+}
+.cont-act>button{
+    font-weight: bold;
+    padding: 21px 49px;
+    color:#5B2386;
+    font-size: 24px;
+    border-radius: 56px;
+    border: 0;
+}
+.trainingButton{
+    background-color: #FCEE21;
+}
+.shareButton{
+    background-color: white;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wenivLogo{
+    width: 125px;
+    height: 25px;
+    margin-bottom: 45px;
+}
+footer>p{
+    color: white;
+    font-size: 12px;
+    margin:0;
+}
+
+.modal{
+    background-color: white;
+    width: 800px;
+    height: 800px;
+    border-radius: 30px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.modal>div>p{
+    color:#5B2386;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 36px;
+    margin: 0;
+}
+.modal>div>.fightingTxt{
+    font-size: 80px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.modalTrainingButton{
+    background-color: #FCEE21;
+    border-radius: 56px;
+    border: 0;
+    padding: 21px 49px;
+    font-size: 24px;
+    color: #5B2386;
+    font-weight: bold;
+    gap:10px;
+}
+.licat{
+    width: 433px;
+    height: 337px;
+}
