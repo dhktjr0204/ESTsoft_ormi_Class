@@ -1,0 +1,35 @@
+@startuml
+class Item{
+    -int id
+    -String name
+    -int price
+    +Item(int id, String name, int price)
+    +int getId()
+    +String getName()
+    +int getPrice()
+    +void print()
+}
+class Album extends Item{
+    -artist
+    +Album(int id, String name, int price, String artist)
+    +String getArtist()
+    +void print(){override}
+}
+class Book extends Item{
+    -author
+    -ISBN
+    +String getAuthor()
+    +String getISBN()
+    +Book(int id, String name, int price, String author, String ISBN)
+    +void print(){override}
+}
+class Movie extends Item{
+    -director
+    -actor
+    +String getDirector()
+    +String getActor()
+    +Movie(int id, String name, int price, String director, String actor)
+    +void print(){override}
+}
+
+@enduml
