@@ -17,7 +17,7 @@ public class Grocery extends Product implements DeliveryChargeCalculator{
         if(price<50000){
             return deliveryCharge;
         }else if(price<100000){
-            deliveryCharge-=deliveryCharge/10;
+            deliveryCharge= (int) (deliveryCharge*0.9);
         }else{
             deliveryCharge=0;
         }
