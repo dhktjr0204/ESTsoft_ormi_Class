@@ -17,4 +17,8 @@ public class Contact{
         return phoneNumber;
     }
 
+    public void displayContacts(){
+        System.out.println("이름:" + getName()
+                + ", 전화번호:" + getPhoneNumber());
+    }
 }

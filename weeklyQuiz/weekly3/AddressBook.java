@@ -77,34 +77,14 @@ public class AddressBook {
             return;
         }
         for (Contact contact : contacts) {
-            if (contact instanceof BuisinessContact) {
-                BuisinessContact buisinessContact = (BuisinessContact) contact;
-                System.out.println("이름:" + buisinessContact.getName()
-                        + ", 전화번호:" + buisinessContact.getPhoneNumber()
-                        + ", 회사명:" + buisinessContact.getCompany());
-            } else if (contact instanceof PersonalContact) {
-                PersonalContact personalContact = (PersonalContact) contact;
-                System.out.println("이름:" + personalContact.getName()
-                        + ", 전화번호:" + personalContact.getPhoneNumber()
-                        + ", 관계:" + personalContact.getRelationship());
-            }
+            contact.displayContacts();
         }
     }
 
     public static void searchContacts(String name) {
         for (Contact contact : contacts) {
             if (contact.getName().equals(name)) {
-                if (contact instanceof BuisinessContact) {
-                    BuisinessContact buisinessContact = (BuisinessContact) contact;
-                    System.out.println("이름:" + buisinessContact.getName()
-                            + ", 전화번호:" + buisinessContact.getPhoneNumber()
-                            + ", 회사명:" + buisinessContact.getCompany());
-                }else if(contact instanceof PersonalContact){
-                    PersonalContact personalContact = (PersonalContact) contact;
-                    System.out.println("이름:" + personalContact.getName()
-                            + ", 전화번호:" + personalContact.getPhoneNumber()
-                            + ", 관계:" + personalContact.getRelationship());
-                }
+                contact.displayContacts();
                 return;
             }
         }

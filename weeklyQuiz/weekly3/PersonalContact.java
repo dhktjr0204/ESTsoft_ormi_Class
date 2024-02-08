@@ -11,5 +11,11 @@ public class PersonalContact extends Contact{
     public String getRelationship() {
         return relationship;
     }
+    @Override
+    public void displayContacts(){
+        System.out.println("이름:" + getName()
+                + ", 전화번호:" + getPhoneNumber()
+                + ", 관계:" + getRelationship());
+    }
 
 }
