@@ -2,18 +2,18 @@ package datily0220;
 
 import java.io.*;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class quiz1 {
+public class quiz1Lambda {
     public List<Integer> solution(int n, int[] array) {
         List<Integer> answer = new ArrayList<>();
         answer.add(array[0]);
-        for(int i=1;i<n;i++){
-            if(array[i]>array[i-1]){
-                answer.add(array[i]);
-            }
-        }
-
+        List<Integer> collect = IntStream.range(1, n)
+                .filter(index -> array[index] > array[index - 1])
+                .mapToObj(x -> array[x])
+                .collect(Collectors.toList());
+        answer.addAll(collect);
         return answer;
     }
 
