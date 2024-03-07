@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.repository.LectureMapper">
+    <select id="selectLectureCourseInfos" resultType="com.example.model.dto.LectureCourseInfo">
+        SELECT t1.title
+             , t1.id        AS lectureCourseId
+             , t1.from
+             , t1.to
+             , t1.capacity
+             , COUNT(t2.id) AS registeredStudentCount
+        FROM lecture_course t1
+                 LEFT OUTER JOIN lecture_applicants t2 ON t1.id = t2.lecture_course_id
+        GROUP BY t1.title, t1.id, t1.from, t1.to, t1.capacity
+    </select>
+
+    <select id="selectLectureCourseDetails" resultType="com.example.model.dto.LectureCourseDetail" parameterType="map">
+        SELECT t1.title
+        , t1.id AS lectureCourseId
+        , t1.from
+        , t1.to
+        , (SELECT name FROM instructor tab where tab.id = t1.instructor_id) AS instructorName
+        , t1.instructor_id AS instructorId
+        , (SELECT name FROM student tab where tab.id = t2.student_id) AS studentName
+        , t2.student_id AS studentId
+        , t2.created_at AS registeredAt
+        FROM lecture_course t1
+        LEFT OUTER JOIN lecture_applicants t2 ON t1.id = t2.lecture_course_id
+        WHERE 1 = 1
+        <if test="lectureCourseId != null">
+            AND t1.id = #{lectureCourseId}
+        </if>
+
+    </select>
+
+    <insert id="saveLectureCourse" parameterType="com.example.model.entity.Instructor">
+        INSERT INTO lecture_course(title, instructor_id, capacity, `from`, `to`, `desc`, created_at, updated_at)
+        VALUES (#{title}, #{instructorId}, #{capacity}, #{from}, #{to}, #{desc}, #{createdAt}, #{updatedAt})
+    </insert>
+
+    <update id="updateInstructorLectureCourse">
+        UPDATE lecture_course
+        SET instructor_id=#{instructorId}
+        WHERE id=#{id}
+    </update>
+
+    <select id="validateLecture" parameterType="Long" resultType="boolean">
+        SELECT lc.capacity > COUNT(la.lecture_course_id)
+        FROM lecture_applicants la
+        RIGHT OUTER JOIN lecture_course lc
+        ON la.lecture_course_id=lc.id
+        WHERE lc.id=#{id}
+    </select>
+
+    <insert id="registerLecture" parameterType="com.example.model.entity.LectureApplicants">
+        INSERT INTO lecture_applicants(lecture_course_id, student_id, created_at, updated_at)
+        VALUES (#{lectureCourseId}, #{studentId}, #{createdAt},#{updatedAt})
+    </insert>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.repository.InstructorMapper">
+    <insert id="saveInstructor" parameterType="com.example.model.entity.Instructor">
+        INSERT INTO instructor(name, `left`, `desc`, created_at)
+        VALUES (#{name}, #{left}, #{desc}, #{createdAt})
+    </insert>
+
+    <select id="validateInstructor" resultType="com.example.model.dto.InstructorInfo" parameterType="Long">
+        SELECT COUNT(*)>0 as isExist
+             , (SELECT COUNT(*) FROM lecture_course WHERE instructor_id=#{id}) as lectureCount
+        FROM instructor
+        WHERE id=#{id}
+    </select>
+</mapper>

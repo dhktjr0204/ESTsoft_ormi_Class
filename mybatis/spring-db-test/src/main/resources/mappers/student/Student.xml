@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.repository.StudentMapper">
+    <insert id="saveStudent" parameterType="com.example.model.entity.Student">
+        INSERT INTO student(name, age, `desc`, created_at)
+        VALUES (#{name}, #{age}, #{desc}, #{createdAt})
+    </insert>
+
+    <update id="updateStudent">
+        UPDATE stduent
+        SET age=#{age}, name=#{name}
+        WHERE id=#{id}
+    </update>
+
+    <select id="isExistsStudent" resultType="boolean" parameterType="Long">
+        SELECT COUNT(*)>0
+        FROM student
+        WHERE id=#{id}
+    </select>
+</mapper>
